@@ -1,4 +1,5 @@
-# Py-Automata Algorithms (Automata Theory algorithms implemented via Python3)
+# Py-Automata Algorithms 
+(Automata Theory algorithms implemented via Python3)
 
 This repo I started to implement methods in automata theory that I found to be interesting. 
 
