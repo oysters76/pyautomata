@@ -1,7 +1,7 @@
 # Py-Automata Algorithms 
 (Automata Theory algorithms implemented via Python3)
 
-This repo I started to implement methods in automata theory that I found to be interesting. 
+I initiated this repository to explore and implement methods within the realm of automata theory.
 
 ## 1. Deterministic Finite Automata (DFA) Minimization 
 
