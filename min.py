@@ -65,19 +65,24 @@ def check(table, D, E, F):
                 break 
     return table, changes
 
+def filter(e_list, iterator, condition):
+    f = [] 
+    for e in iterator:
+        if (condition(e, e_list, f)):
+            f.append(e) 
+    return f 
+
+def unmarked_filter(e, e_list, r_list):
+    return e_list[e] == UNMARK
+
+def duplicate_filter(e, e_list, r_list):
+    return e not in r_list
+
 def filter_unmarked(table):
-    filtered = [] 
-    for key in table.keys():
-        if table[key] == UNMARK:
-            filtered.append(key) 
-    return filtered
+    return filter(table, table.keys(), unmarked_filter)
 
 def remove_duplicates(all_sets):
-    l = []
-    for s in all_sets:
-        if s not in l:
-            l.append(s) 
-    return l
+    return filter(all_sets, all_sets, duplicate_filter)
     
 
 def combine(unmarked):
