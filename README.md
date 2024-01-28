@@ -25,9 +25,11 @@ Before min:  {
               'F0': 'F', 
               'F1': 'F'
               }
+```
 
 ![Before DFA](examples/before.png "before dfa diagram")
 
+```python
 After min:  {
             'AB0': 'AB', 
             'AB1': 'CDE', 
