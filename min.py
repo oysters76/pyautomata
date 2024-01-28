@@ -1,3 +1,5 @@
+import draw 
+
 Q = {'A', 'B', 'C', 'D', 'E', 'F'};     # all states
 q0 = 'A';                               # start state
 E = {'0', '1'};                         # state inputs
@@ -152,6 +154,42 @@ def gen_new_D(unmarked, remained, D, E):
             newD[new_key] = mapped 
     return newD
 
+def gen_new_Q(unmarked, remained):
+    q = [] 
+    def process(l, q):
+        for elem in l:
+            if type(elem) == 'str':
+                q.append(elem) 
+            else:
+                q.append("".join(elem))
+        return q 
+    
+    q = process(unmarked, q) 
+    q = process(remained, q) 
+
+    return set(q)
+
+def gen_new_F(unmarked, remained, F):
+    f = []
+
+    def process(l, f):
+        for elem in l:
+            if type(elem) == 'str':
+                if elem in F: 
+                    f.append(elem) 
+            else:
+                for e in elem:
+                    if e in F:
+                        f.append("".join(elem))
+                        break
+        return f
+    
+    f = process(unmarked, f) 
+    f = process(remained, f) 
+
+    return set(f)
+
+
 def min(Q, q0, E, F, D):
     table = gen_table(Q) 
     table = mark(table, F)
@@ -160,9 +198,14 @@ def min(Q, q0, E, F, D):
         table, changes = check(table, D, E, F)
     unmarked = combine(filter_unmarked(table))
     remained = remain(unmarked, Q)
+
     newD = gen_new_D(unmarked, remained, D, E)
-    return newD
+    newQ = gen_new_Q(unmarked, remained)
+    newF = gen_new_F(unmarked, remained, F)  
+    return newQ, newF, newD
 
 print("Before min: ", D)
 print("After min: ", min(Q, q0, E, F, D))
-
+draw.draw("Before Min", "before", Q, E, F, D);
+Qp, Fp, Dp = min(Q, q0, E, F, D) 
+draw.draw("After Min", "after", Qp, E, Fp, Dp);
