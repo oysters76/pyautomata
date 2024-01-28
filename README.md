@@ -26,6 +26,8 @@ Before min:  {
               'F1': 'F'
               }
 
+![Before DFA](examples/before.png "before dfa diagram")
+
 After min:  {
             'AB0': 'AB', 
             'AB1': 'CDE', 
@@ -36,4 +38,16 @@ After min:  {
             }
 
 ```
+![After DFA](examples/after.png "after dfa diagram")
+
 where '0' and '1' are state inputs.
+
+The diagrams are generated via [graphviz](https://graphviz.org/), an open source graph visualization software, by generating '.dot' files for the corresponding Q, F, D parameters of the FSM. 
+
+The draw.py file implements this visualization. 
+
+# Dependencies 
+
+```console
+    pip install graphviz
+```
