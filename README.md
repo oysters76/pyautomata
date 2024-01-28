@@ -29,7 +29,10 @@ After min:  {
             'AB0': 'AB', 
             'AB1': 'CDE', 
             'CDE0': 'CDE', 
-            'CDE1': 'F'
+            'CDE1': 'F',
+            'F0': 'F', 
+            'F1': 'F'
             }
 
 ```
+where '0' and '1' are state inputs.
