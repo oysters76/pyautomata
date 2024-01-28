@@ -128,7 +128,23 @@ def gen_new_D(unmarked, remained, D, E):
                             mapped = "".join(rem) 
                             break 
                 break
-            newD[new_key] = mapped
+            newD[new_key] = mapped 
+
+    for rem in remained:
+        for e in E:
+            new_key = "".join(rem) + e
+            m_k = D[new_key]
+            mapped = ""
+            for other in unmarked:
+                if m_k in other:
+                    mapped = "".join(other) 
+                    break 
+            if mapped == "":
+                for other in remained:
+                    if m_k in other:
+                        mapped = "".join(other) 
+                        break 
+            newD[new_key] = mapped 
     return newD
 
 def min(Q, q0, E, F, D):
