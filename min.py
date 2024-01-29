@@ -1,5 +1,6 @@
 import draw 
 
+# Example 1 
 Q = {'A', 'B', 'C', 'D', 'E', 'F'};     # all states
 q0 = 'A';                               # start state
 E = {'0', '1'};                         # state inputs
@@ -18,6 +19,24 @@ D = {                                   # transition function
     'F0':'F',
     'F1':'F',
 };
+
+#Example 2 
+# Q = {'A', 'B', 'C', 'D', 'E'};     # all states
+# q0 = 'A';                               # start state
+# E = {'0', '1'};                         # state inputs
+# F = {'E'};                    # all final states
+# D = {                                   # transition function 
+#     'A0':'B',
+#     'A1':'C',
+#     'B0':'B',
+#     'B1':'D',
+#     'C0':'B',
+#     'C1':'C',
+#     'D0':'B',
+#     'D1':'E',
+#     'E0':'B',
+#     'E1':'C',
+# };
 
 MARK = 1 
 UNMARK = 0
